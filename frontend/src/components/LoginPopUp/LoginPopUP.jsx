@@ -1,4 +1,4 @@
-/* eslint-disable react/prop-types */
+
 import 'react'
 import './LoginPopUP.css'
 import { useState } from 'react'

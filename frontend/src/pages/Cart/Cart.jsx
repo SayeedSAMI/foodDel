@@ -3,6 +3,7 @@ import './Cart.css';
 import { StoreContext } from '../../context/StoreContext';
 import FoodItem from '../../components/FoodItem/FoodItem';
 import { useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
 
 const Cart = () => {
   const { cartItems, food_list, removeFromCart, getTotalCartAmount } = useContext(StoreContext);
@@ -20,7 +21,7 @@ const Cart = () => {
         </div>
         <br />
         <hr />
-        {food_list.map((item, index) => {
+        {/* {food_list.map((item, index) => {
           if (cartItems[item._id] > 0) {
             return (
               <div>
@@ -37,7 +38,25 @@ const Cart = () => {
               </div>
             );
           }
+        })} */}
+        {food_list.map((item, index) => {
+          if (cartItems[item._id] > 0) {
+            return (
+              <div key={index}>
+                <div className="cart-item-title cart-item-item">
+                  <img src={item.image} alt="" />
+                  <p>{item.name}</p>
+                  <p>${item.price}</p>
+                  <p>{cartItems[item._id]}</p>
+                  <p>${item.price * cartItems[item._id]}</p>
+                  <p onClick={() => removeFromCart(item._id)} className="cross">x</p>
+                </div>
+                <hr />
+              </div>
+            );
+          }
         })}
+
       </div>
       <div className="cart-bottom">
         <div className="cart-total">

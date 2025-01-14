@@ -1,12 +1,14 @@
-// eslint-disable-next-line no-unused-vars
+
 import React, { useContext, useState } from 'react'
 import './Navbar.css'
 import { assets } from '../../assets/assets'
 import { Link } from 'react-router-dom';
+import { StoreContext } from '../../context/StoreContext';
 const navbar = ({ setShowLogin }) => {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
+
   const [menu, setMenu] = useState("menu")
-  const { getTotalCartAmount } = useContext("StoreContext")
+  // const { getTotalCartAmount } = useContext("StoreContext")
+  const { getTotalCartAmount } = useContext(StoreContext)
   return (
     <div className='navbar'>
       <Link to='/'> <img src={assets.logo} alt="" className="logo" /></Link>
