@@ -1,8 +1,0 @@
-{
-  "scripts": {
-    "start": "node index.js"
-  },
-  "dependencies": {
-    "prop-types": "^15.8.1"
-  }
-}
